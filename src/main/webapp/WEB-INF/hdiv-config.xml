@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:hdiv="http://www.hdiv.org/schema/hdiv"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.hdiv.org/schema/hdiv http://www.hdiv.org/schema/hdiv/hdiv.xsd">
+
+	<hdiv:config errorPage="/error.jsp" confidentiality="false"
+		avoidCookiesConfidentiality="true" avoidCookiesIntegrity="true"
+		excludedExtensions="gif">
+		<hdiv:startPages method="get">/,/javax.faces.resource/.*,/home.faces</hdiv:startPages>
+		<hdiv:startParameters>javax.faces.*</hdiv:startParameters>
+	</hdiv:config>
+
+	<!-- Accepted pattern within the application for all editable parameters 
+		(generated from textbox and textarea) -->
+	<hdiv:validation id="safeText" componentType="text">
+		<hdiv:acceptedPattern><![CDATA[^[a-zA-Z0-9@.\-_]*$]]></hdiv:acceptedPattern>
+	</hdiv:validation>
+
+	<!-- Finally, it's necessary to define editable data validation list for 
+		the application -->
+	<hdiv:editableValidations>
+		<hdiv:validationRule url=".*">safeText</hdiv:validationRule>
+	</hdiv:editableValidations>
+
+</beans>

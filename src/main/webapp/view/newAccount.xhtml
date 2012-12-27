@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/view/template/template.xhtml">
+
+	<ui:define name="title">
+		${msg.createAccount}
+	</ui:define>
+
+	<ui:define name="body">
+
+		<h:form id="formNewAccount">
+			<h:messages />
+			<fieldset>
+				<h2>${msg.accountData}</h2>
+				<p>
+					<h:outputLabel for="userId">${msg.userId}:</h:outputLabel>
+					<h:inputText id="userId" value="${newAccountBean.account.userId}"
+						required="true" />
+				</p>
+				<p>
+					<h:outputLabel for="password">${msg.newPassword}:</h:outputLabel>
+					<h:inputSecret id="password"
+						value="${newAccountBean.account.password}" required="true" />
+				</p>
+				<p>
+					<h:outputLabel for="password2">${msg.repeatPassword}:</h:outputLabel>
+					<h:inputSecret id="password2"
+						value="${newAccountBean.repeatPassword}" required="true" />
+				</p>
+				<h2>${msg.accountInfo}</h2>
+				<p>
+					<h:outputLabel for="firstName">${msg.firstName}:</h:outputLabel>
+					<h:inputText id="firstName"
+						value="${newAccountBean.account.firstName}" required="true" />
+				</p>
+				<p>
+					<h:outputLabel for="lastName">${msg.lastName}:</h:outputLabel>
+					<h:inputText id="lastName"
+						value="${newAccountBean.account.lastName}" required="true" />
+				</p>
+				<p>
+					<h:outputLabel for="email">${msg.email}:</h:outputLabel>
+					<h:inputText id="email" value="${newAccountBean.account.email}"
+						required="true">
+						<f:validator validatorId="emailValidator" />
+					</h:inputText>
+				</p>
+				<p>
+					<h:outputLabel for="phone">${msg.phone}:</h:outputLabel>
+					<h:inputText id="phone" value="${newAccountBean.account.phone}"
+						required="true" />
+				</p>
+				<p>
+					<h:outputLabel for="date">${msg.creationDate} (dd/MM/yyyy):</h:outputLabel>
+					<h:inputText id="date"
+						value="${newAccountBean.account.creationDate}" required="true">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:inputText>
+				</p>
+			</fieldset>
+
+			<h:commandButton id="buttonCreate"
+				action="${newAccountBean.createAccount}" value="Save" />
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<f:view>
+		<ui:insert name="metadata"/>
+		<f:loadBundle var="msg" basename="ApplicationResources" />
+		<html xmlns="http://www.w3.org/1999/xhtml">
+			<h:head>
+				<title><ui:insert name="title">Default title</ui:insert></title>
+				<link rel="stylesheet" type="text/css" href="../css/example.css" />
+			</h:head>
+			<h:body>
+				<ui:insert name="back">
+					<h:link id="back" outcome="/view/accountList">
+						<img src="../images/back-icon.png"  alt="Return to list page" class="back" />
+					</h:link>
+				</ui:insert>
+				<h1><ui:insert name="title">Default title</ui:insert></h1>
+
+				<div id="menu">
+					<ui:insert name="menu">
+						<ui:include src="/view/template/menu.xhtml" />
+					</ui:insert>
+				</div>
+				<div id="content">
+					<ui:insert name="body">Default body</ui:insert>
+				</div>
+				<div id="footer">
+				<ui:insert name="pie">
+					<ui:include src="/view/template/footer.xhtml" />
+				</ui:insert>
+				</div>
+			</h:body>
+		</html>
+	</f:view>
+</ui:composition>

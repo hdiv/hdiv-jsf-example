@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="title">
+		${msg.testingLinks}
+	</ui:define>
+
+	<ui:define name="body">
+		<p>Test to ensure HDIV state is added only if it is necessary.</p>
+
+		<h:outputLink value="/OtherApp/test/mypage.faces">
+			<h:outputText value="Other application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="/hdiv-jsfOtherApp/test/mypage.faces">
+			<h:outputText value="Other application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink
+			value="http://localhost:8080/hdiv-jsfOtherApp/test/mypage.faces">
+			<h:outputText value="Other application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="http://www.google.es">
+			<h:outputText value="Other application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="www.google.es">
+			<h:outputText value="Other application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink
+			value="test/mypage.faces?paramname1=paramvalue1&amp;paramname2=paramvalue2#start">
+			<h:outputText value="Inside application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="hdiv-jsf-example/">
+			<h:outputText value="Inside application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="test/mypage.faces#sarrera">
+			<h:outputText value="Inside application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink
+			value="http://localhost:8080/hdiv-jsf-example/test/mypage.faces">
+			<h:outputText value="Inside application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="/hdiv-jsf-example/test/mypage.faces">
+			<h:outputText value="Inside application" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="test/mypage.faces">
+			<h:outputText value="Inside application" />
+			<f:param name="paramname1" value="paramvalue1" />
+			<f:param name="paramname2" value="paramvalue2" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="#start">
+			<h:outputText value="Anchor" style="font-style: italic" />
+		</h:outputLink>
+		<br />
+
+		<h:outputLink value="wave.med.gif">
+			<h:outputText value="Image" />
+		</h:outputLink>
+		<br />
+
+	</ui:define>
+
+</ui:composition>

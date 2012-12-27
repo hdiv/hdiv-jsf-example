@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	template="/view/template/template.xhtml">
+
+	<ui:define name="title">
+		${msg.fileUpload}
+	</ui:define>
+
+	<ui:define name="body">
+
+		<h:form id="uploadForm" enctype="multipart/form-data">
+			<fieldset>
+				<h2>${msg.fileUpload}</h2>
+				<p>
+					<h:outputLabel for="file" value="Select file" />
+					<t:inputFileUpload id="file" value="#{fileUploadBean.uploadedFile}" required="true" />
+					<h:message for="file" style="color: red;" />
+				</p>
+				<p>
+					<h:commandButton id="buttonUpload" value="Submit" action="#{fileUploadBean.submit}" />
+					<h:message for="uploadForm" infoStyle="color: green;" errorStyle="color: red;" />
+				</p>
+			</fieldset>
+
+			<!-- Hidden for testing parameter validation in a multipart request -->
+			<h:inputHidden id="hiddenNumber" value="#{fileUploadBean.number}" />
+
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>

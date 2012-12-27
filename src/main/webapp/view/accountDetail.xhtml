@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="/view/template/template.xhtml">
+
+	<ui:define name="metadata">
+		<f:metadata>
+			<f:viewParam name="userId" value="${accountDetailBean.userId}" />
+			<f:event type="preRenderView"
+				listener="${accountDetailBean.viewAccount}" />
+		</f:metadata>
+	</ui:define>
+
+	<ui:define name="title">
+		${msg.accountDetail}
+	</ui:define>
+
+	<ui:define name="body">
+		<h2>${msg.accountData}</h2>
+		<p>
+			<span class="label">${msg.userId}</span>
+			${accountDetailBean.account.userId}
+		</p>
+
+		<h2>${msg.accountInfo}</h2>
+		<p>
+			<span class="label">${msg.firstName}</span>
+			${accountDetailBean.account.firstName}
+		</p>
+		<p>
+			<span class="label">${msg.lastName}</span>
+			${accountDetailBean.account.lastName}
+		</p>
+		<p>
+			<span class="label">${msg.email}</span>
+			${accountDetailBean.account.email}
+		</p>
+		<p>
+			<span class="label">${msg.phone}</span>
+			<h:outputText value="${accountDetailBean.account.phone}">
+				<f:converter converterId="prefixConverter" />
+			</h:outputText>
+		</p>
+		<p>
+			<span class="label">${msg.creationDate}</span>
+			<h:outputText value="${accountDetailBean.account.creationDate}">
+				<f:convertDateTime pattern="dd/MM/yyyy" />
+			</h:outputText>
+		</p>
+	</ui:define>
+
+</ui:composition>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+  	<ui:define name="metadata">
+		<f:metadata>
+			<f:event type="preRenderView" listener="${accountListBean.accountList}"/>
+		</f:metadata>
+	</ui:define>
+
+	<ui:define name="title">
+		${msg.accountList}
+	</ui:define>
+
+	<ui:define name="body">
+
+		<h:form id="listForm">
+
+			<h:dataTable var="account" value="${accountListBean.accounts}"
+				id="table">
+				<h:column>
+					<f:facet name="header">
+	        			${msg.userId}
+	        		</f:facet>
+	        		${account.userId}
+	        	</h:column>
+	        	<h:column>
+					<f:facet name="header">
+	        			${msg.detail}[outputLink]
+	        		</f:facet>
+	        		<h:outputLink value="accountDetail.faces">
+	        			<f:param name="userId" value="${account.userId}"/>
+			        	View Detail [${account.userId}]
+	        		</h:outputLink>
+	        	</h:column>
+	        	<h:column>
+					<f:facet name="header">
+	        			${msg.detail}[link]
+	        		</f:facet>
+	        		<h:link id="linkAccountDetail" outcome="/view/accountDetail">
+	        			<f:param name="userId" value="${account.userId}"/>
+						<h:outputText value="View Detail [${account.userId}]"></h:outputText>
+			        </h:link>
+				</h:column>
+	        	<h:column>
+					<f:facet name="header">
+	        			${msg.detail}[button]
+	        		</f:facet>
+			        <h:button id="buttonAccountDetail" outcome="/view/accountDetail" value="View Detail [${account.userId}]">
+			        	<f:param name="userId" value="${account.userId}"/>
+			        </h:button>
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+	        			${msg.firstName}
+	        		</f:facet>
+	        		${account.firstName}
+	        	</h:column>
+				<h:column>
+					<f:facet name="header">
+	        			${msg.lastName}
+	        		</f:facet>
+	        		${account.lastName}
+	        	</h:column>
+				<h:column>
+					<f:facet name="header">
+	        			${msg.phone}
+	        		</f:facet>
+					<h:outputText value="${account.phone}">
+						<f:converter converterId="prefixConverter" />
+					</h:outputText>
+				</h:column>
+				
+				<!-- Pagination inside datatable -->
+				<f:facet name="footer">
+					<p class="pagination">
+		        		<h:commandLink id="linkPrev" action="${accountListBean.accountListPrev}"
+							rendered="${!accountListBean.firstPage}"
+							immediate="true">
+							<!-- <f:ajax execute="@this" render="@form :formPagination"/> -->
+							<f:param name="index" value="${accountListBean.index}"/>
+				        	${msg.prev}
+				        </h:commandLink>
+			
+						<h:commandLink id="linkNext" action="${accountListBean.accountListNext}"
+							rendered="${!accountListBean.lastPage}"
+							immediate="true" styleClass="right">
+							<!-- <f:ajax execute="@this" render="@form :formPagination"/> -->
+							<f:param name="index" value="${accountListBean.index}"/>
+				        	${msg.next}
+				        </h:commandLink>
+			        </p>
+			        <p class="pagination">
+				        <h:commandLink id="linkPrevAL" actionListener="${accountListBean.accountListPrevAL}"
+							rendered="${!accountListBean.firstPage}">
+							<f:param name="index" value="${accountListBean.index}"/>
+				        	${msg.prev}[ActionListener]
+				        </h:commandLink>
+			
+						<h:commandLink id="linkNextAL" actionListener="${accountListBean.accountListNextAL}"
+							rendered="${!accountListBean.lastPage}" styleClass="right">
+							<f:param name="index" value="${accountListBean.index}"/>
+				        	[ActionListener]${msg.next}
+				        </h:commandLink>
+					</p>
+	        	</f:facet>
+				
+			</h:dataTable>
+
+		</h:form>
+
+		<h:form id="formPagination" styleClass="pagination">
+			<h:commandLink id="linkPrev" 
+				action="${accountListBean.accountListPrev}"
+				rendered="${!accountListBean.firstPage}">
+				<f:ajax execute="@this" render="@form :listForm"/>
+				<f:param name="index" value="${accountListBean.index}"/>
+	        	${msg.prev}[Ajax]
+	        </h:commandLink>
+
+			<h:commandLink id="linkNext" 
+				action="${accountListBean.accountListNext}"
+				rendered="${!accountListBean.lastPage}" styleClass="right">
+				<f:ajax execute="@this" render="@form :listForm"/>
+				<f:param name="index" value="${accountListBean.index}"/>
+	        	[Ajax]${msg.next}
+	        </h:commandLink>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
