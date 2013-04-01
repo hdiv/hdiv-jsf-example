@@ -22,6 +22,8 @@ public class NewAccountBean {
 
 	private String repeatPassword;
 
+	private String[] locales = new String[] { "en", "eu" };
+
 	public String createAccount() {
 
 		this.accountFacade.newAccount(this.account);
@@ -67,6 +69,13 @@ public class NewAccountBean {
 	 */
 	public void setAccountFacade(AccountFacade accountFacade) {
 		this.accountFacade = accountFacade;
+	}
+
+	/**
+	 * @return the locales
+	 */
+	public String[] getLocales() {
+		return locales;
 	}
 
 }

@@ -17,48 +17,55 @@
 				<h2>${msg.accountData}</h2>
 				<p>
 					<h:outputLabel for="userId">${msg.userId}:</h:outputLabel>
-					<h:inputText id="userId" value="${newAccountBean.account.userId}"
-						required="true" />
+					<h:inputText id="userId" label="${msg.userId}"
+						value="${newAccountBean.account.userId}" required="true" />
 				</p>
 				<p>
 					<h:outputLabel for="password">${msg.newPassword}:</h:outputLabel>
-					<h:inputSecret id="password"
+					<h:inputSecret id="password" label="${msg.newPassword}"
 						value="${newAccountBean.account.password}" required="true" />
 				</p>
 				<p>
 					<h:outputLabel for="password2">${msg.repeatPassword}:</h:outputLabel>
-					<h:inputSecret id="password2"
+					<h:inputSecret id="password2" label="${msg.repeatPassword}"
 						value="${newAccountBean.repeatPassword}" required="true" />
 				</p>
 				<h2>${msg.accountInfo}</h2>
 				<p>
 					<h:outputLabel for="firstName">${msg.firstName}:</h:outputLabel>
-					<h:inputText id="firstName"
+					<h:inputText id="firstName" label="${msg.firstName}"
 						value="${newAccountBean.account.firstName}" required="true" />
 				</p>
 				<p>
 					<h:outputLabel for="lastName">${msg.lastName}:</h:outputLabel>
-					<h:inputText id="lastName"
+					<h:inputText id="lastName" label="${msg.lastName}"
 						value="${newAccountBean.account.lastName}" required="true" />
 				</p>
 				<p>
 					<h:outputLabel for="email">${msg.email}:</h:outputLabel>
-					<h:inputText id="email" value="${newAccountBean.account.email}"
-						required="true">
+					<h:inputText id="email" label="${msg.email}"
+						value="${newAccountBean.account.email}" required="true">
 						<f:validator validatorId="emailValidator" />
 					</h:inputText>
 				</p>
 				<p>
 					<h:outputLabel for="phone">${msg.phone}:</h:outputLabel>
-					<h:inputText id="phone" value="${newAccountBean.account.phone}"
-						required="true" />
+					<h:inputText id="phone" label="${msg.phone}"
+						value="${newAccountBean.account.phone}" required="true" />
 				</p>
 				<p>
 					<h:outputLabel for="date">${msg.creationDate} (dd/MM/yyyy):</h:outputLabel>
-					<h:inputText id="date"
+					<h:inputText id="date" label="${msg.creationDate}"
 						value="${newAccountBean.account.creationDate}" required="true">
 						<f:convertDateTime pattern="dd/MM/yyyy" />
 					</h:inputText>
+				</p>
+				<p>
+					<h:outputLabel for="locale">${msg.locale}:</h:outputLabel>
+					<h:selectOneMenu id="locale" label="${msg.locale}"
+						value="${newAccountBean.account.locale}">
+						<f:selectItems value="${newAccountBean.locales}" />
+					</h:selectOneMenu>
 				</p>
 			</fieldset>
 
