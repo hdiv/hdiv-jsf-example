@@ -23,7 +23,7 @@ public class AccountFacadeImpl implements AccountFacade {
 			Account account = new Account();
 			account.setAddress1("Address1" + i);
 			account.setAddress2("Address2" + i);
-			account.setUserId("" + i);
+			account.setUserId("User" + i);
 			account.setCity("City" + i);
 			account.setCountry("Country" + i);
 			account.setCreationDate(new Date());
