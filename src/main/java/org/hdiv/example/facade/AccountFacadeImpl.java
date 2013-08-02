@@ -14,12 +14,15 @@ import org.hdiv.example.bean.Account;
 @ManagedBean(name = "accountFacade")
 @ApplicationScoped
 public class AccountFacadeImpl implements AccountFacade {
+
 	private static final Log log = LogFactory.getLog(AccountFacadeImpl.class);
+
+	private static final int ACCOUNT_COUNT = 28;
 
 	private List<Account> accounts = new ArrayList<Account>();
 
 	public AccountFacadeImpl() {
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < ACCOUNT_COUNT; i++) {
 			Account account = new Account();
 			account.setAddress1("Address1" + i);
 			account.setAddress2("Address2" + i);

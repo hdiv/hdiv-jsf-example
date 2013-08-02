@@ -19,7 +19,7 @@ public class AccountListBean {
 
 	private List<Account> accounts;
 
-	private int pageSize = 2;
+	private int pageSize = 5;
 
 	@ManagedProperty("#{param.index > 0?param.index:0}")
 	private int index;
@@ -33,7 +33,7 @@ public class AccountListBean {
 
 	public String accountListPrev() {
 
-		this.index--;
+		this.index -= this.pageSize;
 		this.loadAccountList();
 
 		return "/view/accountList";
@@ -41,7 +41,7 @@ public class AccountListBean {
 
 	public String accountListNext() {
 
-		this.index++;
+		this.index += this.pageSize;
 		this.loadAccountList();
 
 		return "/view/accountList";
@@ -49,13 +49,13 @@ public class AccountListBean {
 
 	public void accountListPrevAL(ActionEvent event) {
 
-		this.index--;
+		this.index -= this.pageSize;
 		this.loadAccountList();
 	}
 
 	public void accountListNextAL(ActionEvent event) {
 
-		this.index++;
+		this.index += this.pageSize;
 		this.loadAccountList();
 	}
 
