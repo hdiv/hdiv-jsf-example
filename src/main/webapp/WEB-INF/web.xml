@@ -76,13 +76,21 @@
 		<filter-name>Extensions Filter</filter-name>
 		<servlet-name>Faces Servlet</servlet-name>
 	</filter-mapping>
-	<!-- Hdiv configuration files -->
+
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>
+         org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+      </param-value>
+	</context-param>
+	<!-- Hdiv configuration -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-			/WEB-INF/hdiv-config.xml
+			org.hdiv.example.config.HdivSecurityConfig
 		</param-value>
 	</context-param>
+
 	<context-param>
 		<param-name>javax.faces.CONFIG_FILES</param-name>
 		<param-value>/WEB-INF/hdiv-faces2-config.xml</param-value>
