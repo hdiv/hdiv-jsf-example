@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 http://www.hdiv.org/schema/hdiv http://www.hdiv.org/schema/hdiv/hdiv.xsd">
 
-	<hdiv:config errorPage="/error.jsp" confidentiality="false"
+	<hdiv:config confidentiality="false"
 		avoidCookiesConfidentiality="true" excludedExtensions="gif">
 		<hdiv:startPages method="get">/,/javax.faces.resource/.*,/home.faces</hdiv:startPages>
 		<hdiv:startParameters>javax.faces.*</hdiv:startParameters>
