@@ -6,7 +6,7 @@
 	<display-name>Hdiv-Jsf2 Example application</display-name>
 	<context-param>
 		<param-name>webAppRootKey</param-name>
-		<param-value>HDIV-JSF_Example.root</param-value>
+		<param-value>Hdiv-JSF_Example.root</param-value>
 	</context-param>
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
