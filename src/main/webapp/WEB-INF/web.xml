@@ -76,7 +76,7 @@
 		<filter-name>Extensions Filter</filter-name>
 		<servlet-name>Faces Servlet</servlet-name>
 	</filter-mapping>
-	<!-- Hdiv configuration files -->
+	<!-- Hdiv configuration files
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -87,18 +87,19 @@
 		<param-name>javax.faces.CONFIG_FILES</param-name>
 		<param-value>/WEB-INF/hdiv-faces2-config.xml</param-value>
 	</context-param>
-	<!-- Spring context loader -->
+	 -->
+	<!-- Spring context loader 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 	<listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-	</listener>
-	<!-- Hdiv initialization listener -->
+	</listener>-->
+	<!-- Hdiv initialization listener 
 	<listener>
 		<listener-class>org.hdiv.listener.InitListener</listener-class>
-	</listener>
-	<!-- HDIV Validator Filter -->
+	</listener>-->
+	<!-- HDIV Validator Filter 
 	<filter>
 		<filter-name>ValidatorFilter</filter-name>
 		<filter-class>org.hdiv.filter.ValidatorFilter</filter-class>
@@ -111,6 +112,7 @@
 		<filter-name>ValidatorFilter</filter-name>
 		<url-pattern>*.jsp</url-pattern>
 	</filter-mapping>
+	-->
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>

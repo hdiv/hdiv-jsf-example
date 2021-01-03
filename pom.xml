@@ -50,6 +50,7 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>org.hdiv</groupId>
 			<artifactId>hdiv-jsf</artifactId>
@@ -60,6 +61,7 @@
 			<artifactId>hdiv-config</artifactId>
 			<version>${org.hdiv.version}</version>
 		</dependency>
+		 -->
 		<!-- Tomahawk for multipart request support -->
 		<dependency>
 			<groupId>org.apache.myfaces.tomahawk</groupId>
@@ -150,8 +152,8 @@
 	<properties>
 		<org.hdiv.version>3.4.0</org.hdiv.version>
 		<!-- RI Tested versions -->
-		<!-- 2.0.2, 2.0.10 -->
-		<jsf-ri.version>2.1.16</jsf-ri.version>
+		<!-- 2.0.2, 2.0.10, 2.1.29-11, 2.2.14 -->
+		<jsf-ri.version>2.2.14</jsf-ri.version>
 		<!-- MyFaces Tested versions -->
 		<!-- 2.0.1, 2.0.16 -->
 		<jsf-myfaces.version>2.1.10</jsf-myfaces.version>
